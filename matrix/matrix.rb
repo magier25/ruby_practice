@@ -25,3 +25,19 @@ class Matrix
     # end
   end
 end
+
+=begin
+# best solution
+
+class Matrix
+    attr_accessor :matrix, :rows, :columns
+
+    def initialize(matrix)
+        @matrix = matrix
+        @rows = matrix.split(/[\n]/).map(&:split)
+        @rows = @rows.map {|row| row.map {|num| num.to_i}}
+        @columns = @rows.transpose
+    end
+end
+
+=end
