@@ -14,13 +14,14 @@ class Matrix
       end
     end
 
-    columns_number = rows[0].size
-    @columns = []
-    for i in 0...columns_number
-      @columns << []
-      for j in 0...rows.size
-        @columns[i] << rows[j][i]
-      end
-    end
+    @columns = @rows.transpose
+    # columns_number = rows[0].size
+    # @columns = []
+    # for i in 0...columns_number
+    #   @columns << []
+    #   for j in 0...rows.size
+    #     @columns[i] << rows[j][i]
+    #   end
+    # end
   end
 end
