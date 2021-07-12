@@ -71,3 +71,39 @@ class RunLengthEncoding
   end
 end
 =end
+
+=begin
+class RunLengthEncoding
+  def self.encode(input)
+    input.gsub(/(.)\1+/) { |s| "#{s.size}#{s.chr}" }
+  end
+
+  def self.decode(input)
+    input.gsub(/(\d+)(\D)/) { $2 * $1.to_i }
+  end
+end
+=end
+
+
+=begin
+# another fine solution
+
+module RunLengthEncoding
+  def self.encode(message)
+    return "" if message.empty?
+
+    message.chars.chunk_while(&:==)
+      .reduce('') do |acc, chunk|
+        acc <<  "#{chunk.size if chunk.size != 1}#{chunk.first}"
+    end
+  end
+
+  def self.decode(message)
+    return "" if message.empty?
+
+    message.scan(/(\d*)(\D)/).map do |count, char|
+      count.empty? ? char : char * count.to_i
+    end.join
+  end
+end
+=end
