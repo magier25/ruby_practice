@@ -74,10 +74,4 @@ class DominoesTest < Minitest::Test
     dominoes = [[1, 2], [5, 3], [3, 1], [1, 2], [2, 4], [1, 6], [2, 3], [3, 4], [5, 6]]
     assert Dominoes.chain?(dominoes)
   end
-
-  def test_validation
-    skip
-    dominoes = [[1, 2], [5, 3], [3, 1], [1, 2], [2, 4], [1, 6], [2, 3], [3, 4], [5, 6]]
-    assert Dominoes.valid?(dominoes)
-  end
 end
